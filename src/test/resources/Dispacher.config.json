@@ -1,0 +1,40 @@
+{
+  "environments": {
+    "18": {
+      "specificProductInfo": {
+        "age": 32,
+        "firstName": "Ana Sofia",
+        "firstLastName": "Castrellon Macias",
+        "identificationType": "C",
+        "idRequest": 137353,
+        "databaseId": 39270,
+        "codOccupation": "ASA",
+        "jobId": 1,
+        "codCiiu": "0010",
+        "income": "10000000",
+        "birthDate": "1989-02-01",
+        "estrategiaMarcaTC": 0,
+        "prodSoliTarjeta1Convenio": 0,
+        "disableCaptcha": true,
+        "requestUuid": "fca1bfd7-ac9c-47bf-abff-c215ceaf6f65",
+        "redirect-pilot": true,
+        "Journey": "TC_Bines_Movistar",
+        "AppName": "TarjetaDeCredito",
+        "originId": "10",
+        "convenio": "",
+        "isCampaign": false,
+        "SourceChannel": "",
+        "productName": "consumer-credit",
+        "Medium": "",
+        "BranchCode": "0001",
+        "AllyCode": "1010"
+      },
+      "utmInfo": {
+        "utm_campaign": "TU_MEJOR_OFERTA",
+        "utm_medium": "URL",
+        "utm_source": "AliadosWeb",
+        "utm_content": "Tarjeta_Credito"
+      }
+    }
+  }
+}

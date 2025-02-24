@@ -25,22 +25,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Instalar Google Chrome
-        run: |
-          sudo apt update
-          sudo apt install -y google-chrome-stable
+      - name: Instalar Google Chrome y ChromeDriver
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: latest
 
-      - name: Instalar ChromeDriver
+      - name: Verificar instalación
         run: |
-          CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | cut -d'.' -f1)
-          DRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-          wget "https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip"
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          chmod +x /usr/local/bin/chromedriver
-
-      - name: Verificar instalación de ChromeDriver
-        run: chromedriver --version
+          google-chrome --version
+          chromedriver --version
 
       - name: Pre ejecución
         run: gradle clean clearReports

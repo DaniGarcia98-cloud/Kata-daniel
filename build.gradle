@@ -57,18 +57,16 @@ ext {
 }
 
 dependencies {
-
-
     implementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-cucumber:${serenityCoreVersion}",
             "org.assertj:assertj-core:${assertJVersion}",
+            'net.serenity-bdd:serenity-ensure:2.0.49'
 
-    implementation("com.googlecode.json-simple:json-simple:1.1.1")
 
-    testImplementation 'net.serenity-bdd:serenity-ensure:2.0.49'
+
 
 
 

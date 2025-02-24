@@ -124,11 +124,11 @@ public class CommonStep {
     }
 
     @Entonces("modificara los datos del usuario {string}, {string}")
-    public void modificaraLosDatosDelUsuario(String nuevoUsuario, String employeeName) throws InterruptedException {
+    public void modificaraLosDatosDelUsuario(String nuevoUsuario, String employeeName) {
         COMMON_ACTOR.attemptsTo(
                 withData(nuevoUsuario, employeeName)
         );
-        Thread.sleep(5000);
+
     }
 }
 

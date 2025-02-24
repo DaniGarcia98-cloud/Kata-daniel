@@ -67,6 +67,6 @@ Característica: Quiero hacer log in
       | Usuario  | Contraseña | EmployeeName | NuevoUsuario |
       | Admin    | admin123   | Admin     | Admin   |
 
-@Eliminarusuario
+
 
 

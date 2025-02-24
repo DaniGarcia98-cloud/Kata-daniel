@@ -1,3 +1,13 @@
+name: Kata-Daniel
+
+on:
+  push:
+    branches:
+      - main
+
+  schedule:
+    - cron: "30 20 * * Mon"
+
 jobs:
   integration-e2e-tests:
     runs-on: ubuntu-latest

@@ -3,7 +3,7 @@ name: Kata-Daniel
 on:
   push:
     branches:
-      - master
+      - main
 
   schedule:
     - cron: "30 20 * * Mon"

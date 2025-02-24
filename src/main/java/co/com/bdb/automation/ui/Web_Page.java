@@ -1,11 +1,9 @@
 package co.com.bdb.automation.ui;
 
-
-import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.screenplay.targets.Target;
+import net.serenitybdd.screenplay.ui.Button;
 import net.thucydides.core.webdriver.shadow.ByShadow;
-import org.openqa.selenium.SearchContext;
-import org.openqa.selenium.WebElement;
 
 import static net.serenitybdd.screenplay.targets.BaseTarget.the;
 
@@ -13,49 +11,63 @@ public class Web_Page {
     private Web_Page() {}
 
 
-    public static final Target Specific = Target.the("campo Celular")
-            .located(ByShadow.cssSelector("#uuid","body > app-root > app-main-page > div > div > bdb-ml-xcenter-login-form", "#bdb-ml-xcenter-login-form > div:nth-child(2) > bdb-at-input"));
+    public static final Target Usuario = Target.the("campo Usuer")
+            .locatedBy("(//input[@placeholder='Username'])[1]");
+   public static final Target Contraseña = Target.the("campo Password")
+           .locatedBy("//input[@placeholder='Password']");
+ public static final Target Login = Target.the("button login")
+         .located(By.xpath("//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button"));
+    public static final Target ADMIN_MENU = Target.the("admin")
+            .located(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a"));
+    public static final Target ADD_USER_BUTTON = Target.the("campo add")
+            .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[2]/div[1]/button/i"));
 
-    public static final Target Celular = Target.the("campo Celular")
-            .located(ByShadow.cssSelector("#cell-phone","body > app-root > app-main-page > div > div > bdb-ml-xcenter-login-form", "#bdb-ml-xcenter-login-form > div:nth-child(3) > bdb-at-input"));
-    public static final Target Cedula = Target.the("campo Cedula")
-            .located(ByShadow.cssSelector("#identity-number","body > app-root > app-main-page > div > div > bdb-ml-xcenter-login-form", "#bdb-ml-xcenter-login-form > div:nth-child(4) > bdb-at-input"));
-   //document.querySelector("body > app-root > app-main-page > div > div > bdb-ml-xcenter-login-form").shadowRoot.querySelector("#bdb-ml-xcenter-login-form > div.bdb-ml-xcenter-login-form__button > button")
-    public static final Target Email = Target.the("campo Cedula")
-            .located(ByShadow.cssSelector("#email","body > app-root > app-main-page > div > div > bdb-ml-xcenter-login-form", "#bdb-ml-xcenter-login-form > div:nth-child(5) > bdb-at-input"));
+    public static final Target USER_ROLE_DROPDOWN = Target.the("User Role dropdown")
+            .located(By.xpath("(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[1]"));
+    public static final Target OPTION_ADMIN  = Target.the("Select Admin")
+            .located(By.xpath("//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[1]/div/div[2]/div/div[2]/div[2]"));
+    public static final Target EMPLOYEE_NAME_FIELD = Target.the("User EMPLOYEE_NAME_FIELD")
+            .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[2]/div/div[2]/div/div/input"));
+    public static final Target USERNAME_FIELD = Target.the(" User Name")
+            .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input"));
 
-    public static final Target Ingresar = Target.the("campo Cedula")
-            .located(ByShadow.cssSelector("#bdb-ml-xcenter-login-form > div.bdb-ml-xcenter-login-form__button > button","body > app-root > app-main-page > div > div > bdb-ml-xcenter-login-form"));
+    public static final Target STATUS_DROPDOWN = Target.the("Dropdown de Status")
+            .located(By.xpath("(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[2]"));
+    public static final Target OPTION_ENABLED = Target.the("Option Enabled en Status")
+            .located(By.xpath("//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[3]/div/div[2]/div/div[2]/div[2]"));
+    public static final Target PASSWORD_FIELD = Target.the("Campo Password usuario")
+            .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input"));
+    public static final Target USE_ROLE_DROPDOWN = Target.the("Desplegable User Role")
+            .located(By.xpath("//select[contains(@class, 'oxd-select-dropdown')]"));
+
+    public static final Target CONFIRM_PASSWORD_FIELD = Target.the("Campo Confirm Password")
+            .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input"));
+    public static final Target SAVE_BUTTON = Target.the("Botón Save")
+            .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]"));
+   public static final Target SELECT_BUTTON = Target.the("Botón Selecionar")
+           .located(By.xpath("//select[contains(@class, 'oxd-select-dropdown')]"));
+    public static final Target SEARCH_USER_FIELD = Target.the("Campo de búsqueda en Admin")
+            .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input"));
+    public static final Target SEARCH_BUTTON = Target.the("Botón de búsqueda en Admin")
+            .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]"));
+    public static final Target USER_RESULT = Target.the("Resultado del usuario en la lista")
+            .located(By.xpath("(//i[@class='oxd-icon bi-check oxd-checkbox-input-icon'])[2]"));
+    public static final Target EDIT_BUTTON = Target.the("Botón de edición del usuario")
+            .located(By.xpath("(//button[@type='button'])[8]"));
+    public static final Target CHANGE_PASSWORD_CHECKBOX = Target.the("Checkbox para cambiar contraseña")
+            .located(By.xpath("(//i[@class='oxd-icon bi-check oxd-checkbox-input-icon'])[1]"));
+    public static final Target SAVE_BUTTON_MODIFY = Target.the("Botón Guardar en edición")
+            .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]"));
 
 
-
-
-    public static final Target Assert_Payment = Target.the("Assert_Payment")
-            .locatedBy("//font[normalize-space()='$40.00']");
-
-    public static final Target Login = Target.the("Log in")
-            .locatedBy("(//button[normalize-space()='Iniciar sesión'])[1]").containingText("Iniciar sesión");
-
-    public static final Target Create_New_Account = the("Crear cuenta nueva")
-            .locatedBy("(//a[normalize-space()='Crear cuenta nueva'])[1]");
-
-    public static final Target Assert_Registro = Target.the("Assert_Registro")
-            .locatedBy("(//div[@class='mbs _52lq fsl fwb fcb'])[1]");
-
-    public static final Target CheckBoxOff = Target.the("Apaggar Checkbox")
-            .locatedBy("\"(//*[name()='svg'][@class='rct-icon rct-icon-uncheck'])[1]\"");
-    public static final Target Assert_CheckBox = Target.the("Assert Checkbox")
-            .locatedBy("(//span[normalize-space()='You have selected :'])[1]");
-    public static final Target Assert_Flight = Target.the("Assert flight")
-            .locatedBy("//tbody/tr[@valign='top']/td/p[@align='left']/font[@face='Arial, Helvetica, sans-serif']/b/font[1]");
-    public static final Target Assert_Addres = Target.the("Assert Addres")
-            .locatedBy("(//p[@id='currentAddress'])[1]");
-
-    public static final Target Assert_DoubleClick = Target.the("Assert DoubleClick")
-            .locatedBy("(//p[@id='doubleClickMessage'])[1]");
-    public static final Target Assert_RightClick = Target.the("Assert RightClick")
-            .locatedBy("(//p[@id='rightClickMessage'])[1]");
-
+    public static final Target Invalid_crediantls = Target.the( "Assert  log in")
+            .locatedBy("(//p[@class='oxd-text oxd-text--p oxd-alert-content-text'])[1]");
+    public static final Target Required_message = Target.the("Mensaje requerido")
+            .locatedBy("(//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message'])[1]");
+    public static final Target Empty_field_user = Target.the( "Assert log in empty field user")
+            .locatedBy("(//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message'][normalize-space()='Required'])[1]");
+    public static final Target Empty_field_password = Target.the( "Assert log in empty field password")
+            .locatedBy("(//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message'][normalize-space()='Required'])[2]");
 
 }
 

@@ -1,0 +1,52 @@
+name: automated-testing-integration
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "30 20 * * Mon"
+  workflow_dispatch:
+    inputs:
+      release_id:
+        type: string
+        description: Ingrese el release-id del RLO generado por STEWARD
+        required: true
+
+jobs:
+  integration-e2e-tests:
+    uses: bancodebogota/bbog-dig-do-testing-pipeline/.github/workflows/test_frontend_integration.yml@v6
+    with:
+      prefix-team: sg
+      environment: 'st'
+      command-install: 'mvn clean install -DskipTests'
+      command-execute:
+        matrix:
+          commands: [ 'mvn clean verify -Dcucumber.filter.tags="@Login"' ]
+      use-aws-credentials: true
+      release-id-steward: ${{ inputs.release_id }}
+      repository: bbog-sg-automated-testing
+      path-report-file: target/surefire-reports/cucumber.json
+      test-plan-key: XCMC-4930
+      test-exec-key: XCMC-4933Git add.
+    secrets:
+      DIG_READER_GITHUB_ACCESS_TOKEN: ${{ secrets.DIG_READER_GITHUB_ACCESS_TOKEN }}
+      AWS_ROLE_ENV: ${{ secrets.AWS_ROLE_ENV }
+      CLIENT_ID_XRAY: ${{ secrets.CLIENT_ID_XRAY }}
+      CLIENT_SECRET_XRAY: ${{ secrets.CLIENT_SECRET_XRAY }}
+      OTHERS: >
+        BROWSERSTACK_USERNAME=${{secrets.AUTOMATE_USERNAME}}
+        BROWSERSTACK_ACCESS_KEY=${{secrets.AUTOMATE_ACCESS_KEY}}
+
+  integration-security-tests:
+    uses: bancodebogota/bbog-dig-do-testing-pipeline/.github/workflows/test_security_integration.yml@v6
+    with:
+      prefix-team: sg
+      environment: 'st'
+      release-id-steward: ${{ inputs.release_id }}
+      repository: bbog-sg-automated-testing
+      target-url-zap: https://authenticatorweb.labdigbdbstgsg.com/
+    secrets:
+      DIG_READER_GITHUB_ACCESS_TOKEN: ${{ secrets.DIG_READER_GITHUB_ACCESS_TOKEN }}
+
+

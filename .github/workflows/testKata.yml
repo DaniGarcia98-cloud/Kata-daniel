@@ -1,0 +1,37 @@
+name: Kata-Daniel
+
+on:
+  push:
+    branches:
+      - master
+
+  schedule:
+    - cron: "30 20 * * Mon"
+
+jobs:
+  integration-e2e-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        command:
+          - 'gradle clean test -Dcucumber.filter.tags="@LoginErroneo"'
+          - 'gradle clean test -Dcucumber.filter.tags="@LoginSoloUsuario"'
+          - 'gradle clean test -Dcucumber.filter.tags="@LoginVacio"'
+          - 'gradle clean test -Dcucumber.filter.tags="@CreacionDeUsuarioAdmin"'
+          - 'gradle clean test -Dcucumber.filter.tags="@ModificarUsuarioAdmin"'
+          - 'gradle clean test -Dcucumber.filter.tags="@Eliminarusuario"'
+
+
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Pre ejecución
+        run: gradle clean clearReports
+
+      - name: Instalación
+        run: gradle clean build -x test
+
+      - name: Ejecución
+        run: ${{ matrix.command }}

@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         plugin = {  "pretty", "rerun:target/rerun.txt", "json:target/destination/cucumber.json"},
         features = {"classpath:features"},
         glue = {"co.com.bdb.automation.stepdefinitions"},
-        tags = "@Login",
+        tags = "@ModificarUsuarioAdmin",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class CurrentTestRunner {

@@ -68,6 +68,7 @@ dependencies {
 
     implementation("com.googlecode.json-simple:json-simple:1.1.1")
 
+    testImplementation 'net.serenity-bdd:serenity-ensure:2.0.49'
 
 
 
@@ -92,3 +93,5 @@ tasks.withType(Test) {
 gradle.startParameter.continueOnFailure = true
 
 test.finalizedBy(aggregate)
+
+

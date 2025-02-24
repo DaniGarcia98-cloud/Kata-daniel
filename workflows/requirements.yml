@@ -1,0 +1,17 @@
+name: requirements-project
+
+on:
+  pull_request:
+    branches:
+      - staging
+      - master
+
+jobs:
+  requirements:
+    uses: bancodebogota/bbog-dig-do-testing-pipeline/.github/workflows/requirements_frontend.yml@v6
+    with:
+      project-name: bbog-sg-automated-testing
+      project-key: bbog-sg-automated-testing
+      language: java
+      sonar-project-properties-file: 'sonar-project-custom.properties'
+    secrets: inherit

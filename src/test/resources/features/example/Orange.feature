@@ -49,7 +49,7 @@ Característica: Quiero hacer log in
 
     Ejemplos:
       | Usuario  | Contraseña | EmployeeName     | NuevoUsuario |       Clave           |          ConfirmarClave |
-      | Admin    | admin123   | Michelle          |  1Daniel123   |      Daniel123       |            Daniel123    |
+      | Admin    | admin123   | FName LName          |  1Daniel123   |      Daniel123       |            Daniel123    |
 
   @ModificarUsuarioAdmin
   Esquema del escenario: Ingresar a OrangeHRM, crear y modificar un usuario

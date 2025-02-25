@@ -74,11 +74,10 @@ Característica: Quiero hacer log in
       | <Usuario> | <Contraseña> |
 
     Y busque el usuario "<EmployeeName>", "<NuevoUsuario>"
-#    Y elimina el usuario "<NuevoUsuario>"
-##    Entonces el usuario "<NuevoUsuario>" ya no debe aparecer en la tabla de usuarios
+    Entonces eliminara el usuario
 
     Ejemplos:
       | Usuario  | Contraseña | EmployeeName | NuevoUsuario |
-      | Admin    | admin123   | FName LName  | 1Daniel123   |
+      | Admin    | admin123   | FName LName  | ae213        |
 
 

@@ -128,6 +128,15 @@ public class CommonStep {
 
 
     }
+
+    @Entonces("eliminara el usuario")
+    public void eliminaraElUsuario() throws InterruptedException {
+        COMMON_ACTOR.attemptsTo(
+                Click.on(SEARCH_USER_FIELD),
+                Click.on(ELIMINAR_BUTTON));
+
+Thread.sleep(5000);
+    }
 }
 
 

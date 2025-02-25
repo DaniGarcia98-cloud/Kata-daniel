@@ -49,10 +49,13 @@ public class Web_Page {
            .located(By.cssSelector("div.oxd-autocomplete-dropdown.--positon-bottom"));
     public static final Target SEARCH_USER_FIELD = Target.the("Campo de búsqueda en Admin")
             .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input"));
-
+    public static final Target SEARCH_BUTTON = Target.the("Botón Selecionar")
+            .located(By.cssSelector("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]"));
 
     public static final Target EDIT_BUTTON = Target.the("Botón de edición del usuario")
             .located(By.xpath("(//button[@type='button'])[8]"));
+    public static final Target ELIMINAR_BUTTON = Target.the("Botón de eliminar del usuario")
+            .located(By.xpath("(//button[@type='button'])[15]"));
     public static final Target CHANGE_PASSWORD_CHECKBOX = Target.the("Checkbox para cambiar contraseña")
             .located(By.xpath("(//i[@class='oxd-icon bi-check oxd-checkbox-input-icon'])[1]"));
     public static final Target SAVE_BUTTON_MODIFY = Target.the("Botón Guardar en edición")

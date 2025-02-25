@@ -34,7 +34,7 @@ public class Web_Page {
     public static final Target STATUS_DROPDOWN = Target.the("Dropdown de Status")
             .located(By.xpath("(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[2]"));
     public static final Target OPTION_ENABLED = Target.the("Option Enabled en Status")
-            .located(By.xpath("//div[@role='option' and span[text()='" + "ESS" + "']]"));
+            .located(By.xpath("//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[3]/div/div[2]/div/div[2]/div[2]"));
     public static final Target PASSWORD_FIELD = Target.the("Campo Password usuario")
             .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input"));
     public static final Target USE_ROLE_DROPDOWN = Target.the("Desplegable User Role")
@@ -59,8 +59,9 @@ public class Web_Page {
             .located(By.xpath("(//i[@class='oxd-icon bi-check oxd-checkbox-input-icon'])[1]"));
     public static final Target SAVE_BUTTON_MODIFY = Target.the("Botón Guardar en edición")
             .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[3]/button[2]"));
-
-
+    public static final Target ASSERT_USUARIO_CREADO = Target.the("Botón Guardar en edición")
+            .located(By.xpath("//*[contains(text(),'1Daniel123')]"
+                    ));
     public static final Target Invalid_crediantls = Target.the( "Assert  log in")
             .locatedBy("(//p[@class='oxd-text oxd-text--p oxd-alert-content-text'])[1]");
     public static final Target Required_message = Target.the("Mensaje requerido")

@@ -62,7 +62,7 @@ public class CommonStep {
         COMMON_ACTOR.attemptsTo(
                 FillUserForm.withData(employeeName, nuevoUsuario, clave, confirmarClave));
 
-
+        Ensure.that(ASSERT_USUARIO_CREADO).value().isEqualTo("1Daniel123");
 
 
         Thread.sleep(5000);

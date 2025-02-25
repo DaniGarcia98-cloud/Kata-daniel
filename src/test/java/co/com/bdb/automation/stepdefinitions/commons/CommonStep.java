@@ -1,6 +1,6 @@
 package co.com.bdb.automation.stepdefinitions.commons;
 
-import co.com.bdb.automation.questions.CommonQuestions;
+
 import co.com.bdb.automation.task.FillUserForm;
 import co.com.bdb.automation.task.FormularioTask;
 import co.com.bdb.automation.task.ModifyUserForm;

@@ -27,7 +27,7 @@ public class FillUserForm implements Task {
         return instrumented(FillUserForm.class, employeeName, nuevoUsuario, clave, confirmarClave);
     }
 
-    @SneakyThrows
+
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(

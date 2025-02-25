@@ -49,7 +49,7 @@ Característica: Quiero hacer log in
 
     Ejemplos:
       | Usuario  | Contraseña | EmployeeName     | NuevoUsuario |       Clave           |          ConfirmarClave |
-      | Admin    | admin123   | Charles          |  1Daniel123   |      Daniel123       |            Daniel123    |
+      | Admin    | admin123   | Michelle          |  1Daniel123   |      Daniel123       |            Daniel123    |
 
   @ModificarUsuarioAdmin
   Esquema del escenario: Ingresar a OrangeHRM, crear y modificar un usuario
@@ -58,7 +58,7 @@ Característica: Quiero hacer log in
       | Usuario  | Contraseña  |
       | <Usuario> | <Contraseña> |
     Y busque el usuario "<EmployeeName>", "<NuevoUsuario>"
-    Entonces modificara los datos del usuario "<NuevoUsuario>", "<EmployeeName>"
+   Entonces modificara los datos del usuario "<NuevoUsuario>", "<EmployeeName>"
 
 
 

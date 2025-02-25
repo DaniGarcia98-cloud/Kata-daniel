@@ -33,16 +33,16 @@ public class ModifyUserForm implements Task {
                 Click.on(EDIT_BUTTON),
                 Click.on(USER_ROLE_DROPDOWN),
                 Click.on(OPTION_ENABLED),
-                SelectFromOptions.byVisibleText("ESS").from(USE_ROLE_DROPDOWN),
+                Click.on(Clic_BUTTOM),
 
                Enter.theValue(employeeName).into(EMPLOYEE_NAME_FIELD),
-                Enter.theValue(modifiedUsername).into(USERNAME_FIELD));
-//
-//                Click.on(CHANGE_PASSWORD_CHECKBOX),
-//                Enter.theValue(newPassword).into(PASSWORD_FIELD),
-//                Enter.theValue(newPassword).into(CONFIRM_PASSWORD_FIELD),
-//
-//                Click.on(SAVE_BUTTON_MODIFY)
+                Enter.theValue(modifiedUsername).into(USERNAME_FIELD),
+
+               Click.on(CHANGE_PASSWORD_CHECKBOX),
+                Enter.theValue(newPassword).into(PASSWORD_FIELD),
+               Enter.theValue(newPassword).into(CONFIRM_PASSWORD_FIELD),
+
+               Click.on(SAVE_BUTTON_MODIFY));
 
     }
 }

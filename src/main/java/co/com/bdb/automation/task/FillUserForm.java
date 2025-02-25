@@ -1,5 +1,6 @@
 package co.com.bdb.automation.task;
 
+import lombok.SneakyThrows;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -26,6 +27,7 @@ public class FillUserForm implements Task {
         return instrumented(FillUserForm.class, employeeName, nuevoUsuario, clave, confirmarClave);
     }
 
+    @SneakyThrows
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
@@ -37,17 +39,25 @@ public class FillUserForm implements Task {
                 Click.on(USER_ROLE_DROPDOWN),
                 Click.on(OPTION_ADMIN),
 
-                Enter.theValue(employeeName).into(EMPLOYEE_NAME_FIELD),
-        WaitUntil.the(SELECT_BUTTON, isVisible()).forNoMoreThan(50).seconds(),
-               Click.on(SELECT_BUTTON));
-//                Enter.theValue(nuevoUsuario).into(USERNAME_FIELD),
-//
-//                Click.on(STATUS_DROPDOWN),
-//                Click.on(OPTION_ENABLED),
-//
-//                Enter.theValue(clave).into(PASSWORD_FIELD),
-//                Enter.theValue(confirmarClave).into(CONFIRM_PASSWORD_FIELD),
-//
-//                Click.on(SAVE_BUTTON)
+                Enter.theValue(employeeName).into(EMPLOYEE_NAME_FIELD));
+
+        try {
+            Thread.sleep(5000); // 🔹 Pausa de 5 segundos (no recomendado)
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // 🔹 Manejo adecuado de la excepción
+        }
+                actor.attemptsTo(
+
+               Click.on(SELECT_BUTTON),
+                Enter.theValue(nuevoUsuario).into(USERNAME_FIELD),
+
+              Click.on(STATUS_DROPDOWN),
+               Click.on(OPTION_ENABLED),
+
+                Enter.theValue(clave).into(PASSWORD_FIELD),
+               Enter.theValue(confirmarClave).into(CONFIRM_PASSWORD_FIELD),
+
+                Click.on(SAVE_BUTTON));
+
 
     }}

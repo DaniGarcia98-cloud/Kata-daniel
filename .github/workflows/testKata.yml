@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-
   schedule:
     - cron: "30 20 * * Mon"
 
@@ -12,29 +11,24 @@ jobs:
   integration-e2e-tests:
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
-      max-parallel: 3
       matrix:
         command:
-          - 'gradle clean test -Dcucumber.filter.tags="@LoginErroneo" -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver'
-          - 'gradle clean test -Dcucumber.filter.tags="@LoginSoloUsuario" -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver'
-          - 'gradle clean test -Dcucumber.filter.tags="@LoginVacio" -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver'
-          - 'gradle clean test -Dcucumber.filter.tags="@CreacionDeUsuarioAdmin" -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver'
-          - 'gradle clean test -Dcucumber.filter.tags="@ModificarUsuarioAdmin" -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver'
-          - 'gradle clean test -Dcucumber.filter.tags="@Eliminarusuario" -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver'
+          - 'gradle clean test -Dcucumber.filter.tags="@LoginErroneo"'
+          - 'gradle clean test -Dcucumber.filter.tags="@LoginSoloUsuario"'
+          - 'gradle clean test -Dcucumber.filter.tags="@LoginVacio"'
+          - 'gradle clean test -Dcucumber.filter.tags="@CreacionDeUsuarioAdmin"'
+          - 'gradle clean test -Dcucumber.filter.tags="@ModificarUsuarioAdmin"'
+          - 'gradle clean test -Dcucumber.filter.tags="@Eliminarusuario"'
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Chrome and ChromeDriver
-        uses: browser-actions/setup-chrome@v1
-
-      - name: Set up JDK 18
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '18'
+      - name: Install Chrome & ChromeDriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+          sudo apt-get install -y chromium-chromedriver
 
       - name: Pre ejecución
         run: gradle clean clearReports
@@ -44,3 +38,12 @@ jobs:
 
       - name: Ejecución
         run: ${{ matrix.command }}
+
+      - name: Generate Serenity Report
+        run: gradle aggregate
+
+      - name: Upload Serenity Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: serenity-report
+          path: target/site/serenity/

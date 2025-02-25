@@ -60,13 +60,25 @@ Característica: Quiero hacer log in
     Y busque el usuario "<EmployeeName>", "<NuevoUsuario>"
    Entonces modificara los datos del usuario "<NuevoUsuario>", "<EmployeeName>"
 
+    Ejemplos:
+      | Usuario  | Contraseña | EmployeeName | NuevoUsuario |
+      | Admin    | admin123   |              | Admin   |
 
 
+
+  @ModificarEliminarUsuario
+  Esquema del escenario: Modificar y eliminar un usuario en OrangeHRM
+    Dado que el usuario ingrese a la pagina de orange
+    Cuando realice login
+      | Usuario  | Contraseña  |
+      | <Usuario> | <Contraseña> |
+
+    Y busque el usuario "<EmployeeName>", "<NuevoUsuario>"
+#    Y elimina el usuario "<NuevoUsuario>"
+##    Entonces el usuario "<NuevoUsuario>" ya no debe aparecer en la tabla de usuarios
 
     Ejemplos:
       | Usuario  | Contraseña | EmployeeName | NuevoUsuario |
-      | Admin    | admin123   | Admin     | Admin   |
-
-
+      | Admin    | admin123   | FName LName  | 1Daniel123   |
 
 

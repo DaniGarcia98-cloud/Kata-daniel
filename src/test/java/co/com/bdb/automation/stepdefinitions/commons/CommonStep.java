@@ -3,6 +3,7 @@ package co.com.bdb.automation.stepdefinitions.commons;
 import co.com.bdb.automation.questions.CommonQuestions;
 import co.com.bdb.automation.task.FillUserForm;
 import co.com.bdb.automation.task.FormularioTask;
+import co.com.bdb.automation.task.ModifyUserForm;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
@@ -32,12 +33,10 @@ public class CommonStep {
     private static final String Kata = "pages.Kata";
 
 
-
     @Dado("que el usuario ingrese a la pagina de orange")
     public void queElUsuarioIngreseALaPaginaDeorange() {
         COMMON_ACTOR.attemptsTo(
                 Open.browserOn().thePageNamed(Kata));
-
 
 
     }
@@ -52,7 +51,7 @@ public class CommonStep {
     public void daraClicEnElBotonLogin() throws InterruptedException {
         COMMON_ACTOR.attemptsTo(
                 Click.on(Login));
-                Ensure.that(Invalid_crediantls).value().isEqualTo("Invalid crediantials");
+        Ensure.that(Invalid_crediantls).value().isEqualTo("Invalid crediantials");
         Thread.sleep(5000);
 
     }
@@ -92,10 +91,6 @@ public class CommonStep {
                 Click.on(Login));
 
 
-
-
-
-
     }
 
     @Cuando("realice login")
@@ -115,22 +110,27 @@ public class CommonStep {
     }
 
     @Y("busque el usuario {string}, {string}")
-    public void busqueElUsuario(String employeeName, String nuevoUsuario) {
+    public void busqueElUsuario(String employeeName, String nuevoUsuario) throws InterruptedException {
         COMMON_ACTOR.attemptsTo(
                 Click.on(Login),
                 Click.on(ADMIN_MENU),
                 Enter.theValue(nuevoUsuario).into(SEARCH_USER_FIELD));
 
+        Thread.sleep(5000);
     }
 
     @Entonces("modificara los datos del usuario {string}, {string}")
     public void modificaraLosDatosDelUsuario(String nuevoUsuario, String employeeName) {
         COMMON_ACTOR.attemptsTo(
-                withData(nuevoUsuario, employeeName)
-        );
+                withData(nuevoUsuario, employeeName));
+        Ensure.that(ASSERT_USUARIO_CREADO).value().isEqualTo("1Daniel123");
+        ;
+
 
     }
 }
+
+
 
 
 

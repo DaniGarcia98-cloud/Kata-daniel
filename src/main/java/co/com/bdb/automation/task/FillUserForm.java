@@ -42,9 +42,9 @@ public class FillUserForm implements Task {
                 Enter.theValue(employeeName).into(EMPLOYEE_NAME_FIELD));
 
         try {
-            Thread.sleep(5000); // 🔹 Pausa de 5 segundos (no recomendado)
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
-            Thread.currentThread().interrupt(); // 🔹 Manejo adecuado de la excepción
+            Thread.currentThread().interrupt(); //
         }
                 actor.attemptsTo(
 

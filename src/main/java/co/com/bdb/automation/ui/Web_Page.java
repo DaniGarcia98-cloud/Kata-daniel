@@ -35,10 +35,10 @@ public class Web_Page {
             .located(By.xpath("(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[2]"));
     public static final Target OPTION_ENABLED = Target.the("Option Enabled en Status")
             .located(By.xpath("//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[3]/div/div[2]/div/div[2]/div[2]"));
+    public static final Target OPTION_DISABLED = Target.the("Option Enabled en Status")
+            .located(By.xpath("//*[@id='app']/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[3]/div/div[2]/div/div[2]/div[2]"));
     public static final Target PASSWORD_FIELD = Target.the("Campo Password usuario")
             .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input"));
-    public static final Target USE_ROLE_DROPDOWN = Target.the("Desplegable User Role")
-            .located(By.xpath("//select[contains(@class, 'oxd-select-dropdown')]"));
     public static final Target Clic_BUTTOM= Target.the("Clic button")
             .located(By.xpath("//div[@role='option' and span[text()='" + "ESS" + "']]"));
     public static final Target CONFIRM_PASSWORD_FIELD = Target.the("Campo Confirm Password")
@@ -49,10 +49,8 @@ public class Web_Page {
            .located(By.cssSelector("div.oxd-autocomplete-dropdown.--positon-bottom"));
     public static final Target SEARCH_USER_FIELD = Target.the("Campo de búsqueda en Admin")
             .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/input"));
-    public static final Target SEARCH_BUTTON = Target.the("Botón de búsqueda en Admin")
-            .located(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]"));
-    public static final Target USER_RESULT = Target.the("Resultado del usuario en la lista")
-            .located(By.xpath("(//i[@class='oxd-icon bi-check oxd-checkbox-input-icon'])[2]"));
+
+
     public static final Target EDIT_BUTTON = Target.the("Botón de edición del usuario")
             .located(By.xpath("(//button[@type='button'])[8]"));
     public static final Target CHANGE_PASSWORD_CHECKBOX = Target.the("Checkbox para cambiar contraseña")

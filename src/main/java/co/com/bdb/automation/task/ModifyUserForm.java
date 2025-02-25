@@ -3,6 +3,7 @@ package co.com.bdb.automation.task;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Clear;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import net.serenitybdd.screenplay.waits.WaitUntil;
@@ -29,21 +30,26 @@ public class ModifyUserForm implements Task {
         String newPassword = "098" + nuevoUsuario + "12345";
 
         actor.attemptsTo(
-
                 Click.on(EDIT_BUTTON),
                 Click.on(USER_ROLE_DROPDOWN),
-                Click.on(OPTION_ENABLED),
                 Click.on(Clic_BUTTOM),
 
-               Enter.theValue(employeeName).into(EMPLOYEE_NAME_FIELD),
+                Clear.field(EMPLOYEE_NAME_FIELD),
+                Enter.theValue(employeeName).into(EMPLOYEE_NAME_FIELD),
+
                 Enter.theValue(modifiedUsername).into(USERNAME_FIELD),
 
-               Click.on(CHANGE_PASSWORD_CHECKBOX),
+                Click.on(CHANGE_PASSWORD_CHECKBOX),
                 Enter.theValue(newPassword).into(PASSWORD_FIELD),
-               Enter.theValue(newPassword).into(CONFIRM_PASSWORD_FIELD),
+                Enter.theValue(newPassword).into(CONFIRM_PASSWORD_FIELD),
 
-               Click.on(SAVE_BUTTON_MODIFY));
+                Click.on(SAVE_BUTTON_MODIFY)
+        );
 
-
+        try {
+            Thread.sleep(5000); // Pausa fija de 5 segundos
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Manejo de la interrupción
+        }
     }
 }
